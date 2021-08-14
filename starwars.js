@@ -11,4 +11,23 @@ window.addEventListener("click", function(){
  })
 
 
- 
+ const cursor= document.querySelector(".cursor");
+const disparo= document.querySelector("#tiro");
+const audio= document.querySelector(".audio");
+audio.volume=0.5;
+
+
+ document.addEventListener("mousemove", function(e){
+     cursor.setAttribute("style", "top: "+(e.pageY-10)+"px; left: "+(e.pageX-40)+"px;");
+ })
+
+  document.addEventListener("click", function(){
+    
+    disparo.classList.add("click");
+    setTimeout(function(){
+        
+        disparo.classList.remove("click");
+        audio.play();
+       
+    }, 500)
+     })  
